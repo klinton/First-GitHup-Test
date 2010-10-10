@@ -1,5 +1,4 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -38,5 +37,13 @@ module SampleApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Spork additions 
+    if Rails.env.test?
+      initializer :after => :initialize_dependency_mechanism do
+      ActiveSupport::Dependencies.mechanism = :load
+    end
   end
 end
+end
+

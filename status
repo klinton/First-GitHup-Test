@@ -1,0 +1,18 @@
+Test Automation Tools/PreRequisites:
+autotest 4.3.2
+autotest-rails-pure 4.1.0
+ZenTest
+redgreen
+(Aptitude): libnotify-bin
+.autotest
+.autotest_images
+autotest-growl
+
+gem spork, '0.8.4'  (spork --bootstrap)
+  - modified spec_helper.rb
+
+References:
+http://growl.info (Growl for Mac OS X)
+http://growlforwindows.com (Growl for Windows)
+http://www.galago-project.org (libnotify for Linux)
+
