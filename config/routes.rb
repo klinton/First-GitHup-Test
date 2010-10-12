@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
 
+
   match 'help', :to => 'pages#help'
   match 'home', :to => 'pages#home'
   match 'contact', :to => 'pages#contact'
