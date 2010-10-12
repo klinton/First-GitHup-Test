@@ -11,6 +11,8 @@ autotest-growl
 gem spork, '0.8.4'  (spork --bootstrap)
   - modified spec_helper.rb
 
+
+
 References:
 http://growl.info (Growl for Mac OS X)
 http://growlforwindows.com (Growl for Windows)
@@ -27,7 +29,60 @@ defining application methods (ie...title, to utilize in layout/application)
 BluePrintscss.org
 
 
+Literals/Strings; Interpolating
+Arrays
+String methods:
+sort, reverse. shuffle, first, second, last, -1, split(<split char>)
+Array methods: .join(<join character>)
 
+to_a (to array)
+
+a = %w[elements....]   - create a string array, no quotes required
+
+Implicit Return :
+def <method name>()
+ ...
+ ... implicit return
+end
+
+Rails Helper Declarations (DRY)
+ - availability of methods 
+
+('a'..'z').to_a.shuffle[0..7].join
+  to_a -  to character array
+  shuffle - randomize
+  shuffle[0..7] - returns first 8 random elements of array
+  join - joins results of array into one string
+
+
+hashes
+  hashname = {}
+    hashname["attribute"] = "value"
+
+Symbols - :<symbol value>
+
+.inspect - method return string literal of object
+
+class, superclass
+Inheritance Hiearchy Concepts
+
+Modifying Built in Classes
+class String
+   def <method>?
+   ...
+  end
+end
+
+----------------------------------------------
+Examples:   self.split('').shuffle.join
+
+person1={:first => 'f', :last => 'l'}
+params{}
+params[:winner]=person1
+w_first = params[:winner][:first]
+w_last = params[:winner][:last]
+
+===============================================
 Resources:
 
 Testing
@@ -42,9 +97,7 @@ Blueprintcss.org
 
 Ruby:
 railstutorial.org
-
-
-
+"The Rails 3 Way" (Obie Fernandez)
 
 
 
