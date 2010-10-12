@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.4.0)
     abstract (1.0.0)
     actionmailer (3.0.0)
       actionpack (= 3.0.0)
@@ -30,6 +31,9 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    autotest (4.3.2)
+    autotest-rails (4.1.0)
+      ZenTest
     builder (2.1.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -88,6 +92,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest
+  autotest-rails
   rails (= 3.0.0)
   rspec (= 2.0.0.rc)
   rspec-rails (= 2.0.0.rc)
