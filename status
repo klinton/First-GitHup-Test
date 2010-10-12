@@ -83,6 +83,17 @@ w_first = params[:winner][:first]
 w_last = params[:winner][:last]
 
 ===============================================
+
+C5:
+stylesheets,
+partials
+routes
+integration tests
+-=----------------
+
+
+
+
 Resources:
 
 Testing
