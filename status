@@ -11,6 +11,10 @@ autotest-growl
 gem spork, '0.8.4'  (spork --bootstrap)
   - modified spec_helper.rb
 
+Enabling public access to model attributes via: "attr_accessible: :<attr1>, :<attr2> ..."
+
+Development Console (session is rolled back on exit)
+>rails console --sandbox
 
 
 References:
@@ -91,6 +95,23 @@ routes
 integration tests
 -=----------------
 
+C6:
+Generating models (rails generate <table-name> field:datatype.....)
+rake utility
+  db:migrate
+  db:rollback
+
+
+Models/spec/db files timestamped.
+
+
+gem annotate-models 1.0.4
+  - provides the annotate command, used for model notations.  
+    'Extremely' useful.
+
+
+
+-----------------------------------
 
 
 
