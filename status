@@ -8,6 +8,8 @@ redgreen
 .autotest_images
 autotest-growl
 
+factory_girl_rails, 1.0
+
 gem spork, '0.8.4'  (spork --bootstrap)
   - modified spec_helper.rb
 
@@ -110,6 +112,50 @@ gem annotate-models 1.0.4
     'Extremely' useful.
 
 
+c7:
+password authentication
+encrypt
+private methods
+Testing methodologies
+self.
+require 'digest'
+rails generate migration add_field_to_<table> <field>:<datatype>
+validates
+attr_accessor
+attr_accessible
+rake db:migrate
+rake db:test:prepare
+
+create!()
+secure_hash()
+encrypt()
+
+Factories
+
+
+have_selector method
+
+gravatar_image_tag , 0.1.0
+
+Named Route   - Path Examples (for user)
+----------------------------------
+user_path /users
+user_path(@user) /users/1
+new_user_path /users/new
+edit_user_path(@user) /users/1/edit
+  Url related paths: 
+users_url   http://...../users
+user_url(@user) ...
+new_user_url ...
+edit_user_url(@user) ...
+----------------------------------
+
+
+<%= link_to user_path(@user), @user %>
+
+ in context of "link_to" the above is equivalent to:
+
+<%= link_to user_path(@user), user_path(@user) %>
 
 -----------------------------------
 
@@ -131,6 +177,8 @@ Ruby:
 railstutorial.org
 "The Rails 3 Way" (Obie Fernandez)
 railslab.newrelic.com
+
+"The Well Grounded Rubyist"
 
 
 

@@ -14,15 +14,15 @@ describe User do
     User.create!(@attr)
   end
 
-#  it "should require a name" do
-#    no_name_user = User.new(@attr.merge(:name => ""))
-#    no_name_user.should_not be_valid
-#  end
+  it "should require a name" do
+    no_name_user = User.new(@attr.merge(:name => ""))
+    no_name_user.should_not be_valid
+  end
 
-#  it "should require an email address" do
-#    no_email_user = User.new(@attr.merge(:email => ""))
-#    no_email_user.should_not be_valid
-#  end
+  it "should require an email address" do
+    no_email_user = User.new(@attr.merge(:email => ""))
+    no_email_user.should_not be_valid
+  end
 
   it "should reject names htat are too long" do
     long_name = "a" * 51
@@ -91,9 +91,25 @@ describe User do
       @user = User.create!(@attr)
     end
 
-    it "should have an encrypted password attribute" do
-      @user.should respond_to(:encrypted_password)
+  describe "has_password? method" do
+  
+    it "should be true if the passwords match" do
+      @user.has_password?(@attr[:password]).should be_true
+    end
+
+    it "should be false if the password don't match" do
+      @user.has_password?("invalid").should be_false
     end
   end
+
+#    it "should have an encrypted password attribute" do
+#      @user.should respond_to(:encrypted_password)
+#    end
+
+    it "should set the encrypted password" do
+      @user.encrypted_password.should_not be_blank
+    end
+  end
+
 #  pending "add some examples to (or delete) #{__FILE__}"
 end
