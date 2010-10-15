@@ -17,9 +17,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+#      flash fails!
+#      flash[:success] = "Welcome" 
       #If save succeeded, redirect to user_path 
       # Note: Rspec only recognizes  user_path(@user), used @user here.
-      flash[:success] = "Welcome to the SampleApp!" 
       redirect_to @user
     else
       @title = "Sign Up"

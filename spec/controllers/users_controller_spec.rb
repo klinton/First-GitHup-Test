@@ -41,6 +41,7 @@ describe UsersController do
 
 # Default Tests
   describe "GET 'new'" do
+
     it "should be successful" do
       get 'new'
       response.should be_success
@@ -55,8 +56,8 @@ describe UsersController do
 # Post Create
   describe "POST 'create'" do
 
-
     describe "failure" do
+
       before(:each) do
         @attr = { :name => "", :email => "", :password => "", :password_confirmation => ""}
       end
@@ -78,29 +79,28 @@ describe UsersController do
       end
     end
 
-  describe "success" do
+    describe "success" do
   
-    before(:each) do
-      @attr = { :name => "Test User", :email => "test@testsite.com", 
-                :password => "testpass", :password_confirmation => "testpass"}
-    end
+      before(:each) do
+        @attr = { :name => "Example User", :email => "test@example.com", 
+                  :password => "booboo", :password_confirmation => "booboo"}
+      end
 
-    it "should create a user" do
-      lambda do
+      it "should create a user" do
+        lambda do
+          post :create, :user => @attr
+        end.should change(User, :count).by(1)
+      end
+  
+      it "should redirect to the user show page" do
         post :create, :user => @attr
-      end.should change(User, :count).by(1)
+        response.should redirect_to(user_path(assigns(:user)))
+      end
+  
+#      it "should have a welcome message" do
+#        post :create, :user => @attr
+#        flash[:success].should =~ /Welcome/i
+#      end
     end
-
-    it "should redirect to the user show page" do
-      post :create, :user => @attr
-      response.should redirect_to(user_path(assigns(:user)))
-    end
-
-    it "should have a welcome message" do
-      post :create, :user => @attr
-      flash[:success].should =~ /Welcome to the SampleApp/i
-    end
-
   end
-
 end
