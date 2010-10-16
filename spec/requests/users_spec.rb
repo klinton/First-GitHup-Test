@@ -4,17 +4,40 @@ describe "Users" do
 
   describe "signup" do
 
+    describe "sign in/out" do
+      describe "failure" do
+        it "should not wsign a user in" do
+          visit signin_path
+          fill_in :email,   :with => ""
+          fill_in :password, :with => ""
+          click_button
+          response.should have_selector("div.flash.error", :content => "Invalid")
+        end
+
+        describe "success" do
+          it "should sign a user in and out" do
+            user = Factory(:user)
+            visit signin_path
+            fill_in :email,   :with => user.email
+            fill_in :password, :with => user.password
+            click_button
+            controller.should be_signed_in
+            click_link "Sign Out"
+            controller.should_no be_signed_in
+          end
+        end
+      end
+
     describe "success" do
 
       it "should make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",         :with => "Test User"
-          fill_in "Email",        :with => "test@test.com"
-          fill_in "Password",     :with => "testme"
-          fill_in "Confirmation", :with => "testme"
+          fill_in "Name",         :with => "Yogi Bear"
+          fill_in "Email",        :with => "theavgbear@jellystonepark.gov"
+          fill_in "Password",     :with => "Picnic Basket"
+          fill_in "Confirmation", :with => "Picnic Basket"
           click_button
-
 #          response.should have_selector("div.flash.success", 
 #                                         :content => "Welcome")
           response.should render_template('users/show')

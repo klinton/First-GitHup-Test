@@ -161,6 +161,19 @@ edit_user_url(@user) ...
 
 CH8: Error Handling
 
+
+Module/Build Order:
+1336  rails generate model User name:string email:string
+  1517  rails generate migration add_email_uniqueness_index
+
+1606  rails generate controller Pages help
+  1854  rails generate migration add_salt_to_users salt:string
+  1883  rails generate migration add_password_to_users encrypted_password:string
+
+2116  rails generate integration_test users
+
+
+
 Resources:
 
 Testing

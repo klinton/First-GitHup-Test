@@ -4,10 +4,10 @@ describe User do
 
   before(:each) do
     @attr = { 
-      :name => "Example User", 
-      :email => "user@example.com",
-      :password => "foozball",
-      :password_confirmation => "foozball" }
+      :name => "Yogi Bear", 
+      :email => "theavgbear@jellystonepark.gov",
+      :password => "Picnic Basket",
+      :password_confirmation => "Picnic Basket" }
   end
 
   it "should create a new instance given valid attributes" do
