@@ -1,34 +1,35 @@
 require 'spec_helper'
 
 describe "Users" do
-
   describe "signup" do
-
     describe "sign in/out" do
-      describe "failure" do
-        it "should not wsign a user in" do
+
+      describe "sio failure" do
+        it "should not sign a user in" do
           visit signin_path
           fill_in :email,   :with => ""
           fill_in :password, :with => ""
           click_button
-          response.should have_selector("div.flash.error", :content => "Invalid")
-        end
-
-        describe "success" do
-          it "should sign a user in and out" do
-            user = Factory(:user)
-            visit signin_path
-            fill_in :email,   :with => user.email
-            fill_in :password, :with => user.password
-            click_button
-            controller.should be_signed_in
-            click_link "Sign Out"
-            controller.should_no be_signed_in
-          end
+          response.should have_selector("div.flash.error", 
+                                         :content => "Invalid")
         end
       end
 
-    describe "success" do
+      describe "sio success" do
+        it "should sign a user in and out" do
+          user = Factory(:user)
+          visit signin_path
+          fill_in :email,   :with => user.email
+          fill_in :password, :with => user.password
+          click_button
+          controller.should be_signed_in
+          click_link "Sign Out"
+          controller.should_no be_signed_in
+        end
+      end
+    end
+
+    describe "su success" do
 
       it "should make a new user" do
         lambda do
@@ -45,7 +46,7 @@ describe "Users" do
       end
     end
 
-    describe "failure" do
+    describe "su failure" do
 
       it "should not make a new user" do
         lambda do
@@ -62,5 +63,4 @@ describe "Users" do
       end
     end
   end
-
 end
