@@ -188,5 +188,11 @@ div.field, div.actions {
 }
 
 
+ul.users {
+  margin-top: lem;
+}
 
+.users li {
+  list-style: none;
+}
 

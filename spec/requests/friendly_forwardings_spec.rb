@@ -11,6 +11,6 @@ describe "FriendlyForwardings" do
     click_button
 
     # The test follows the redirect again, this time to users/edit.
-    response.should redner_tempalte('users/edit')
+    response.should render_template('users/edit')
   end
 end

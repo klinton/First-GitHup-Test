@@ -24,7 +24,7 @@ module SessionsHelper
 
   def deny_access
     store_location
-    redirect_to signin_path, :error => "Please Sign In to continue."
+    redirect_to signin_path, :notice => "Please Sign In to continue."
   end
 
   def current_user?(user)
@@ -32,7 +32,7 @@ module SessionsHelper
   end
 
   def store_location
-    session[:retrun_to] = request.fullpath
+    session[:return_to] = request.fullpath
   end
 
   def redirect_back_or(default)
