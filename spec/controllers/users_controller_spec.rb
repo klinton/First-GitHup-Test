@@ -10,7 +10,7 @@ describe UsersController do
       it "should deny access" do
         get :index
         response.should redirect_to(signin_path)
-#        flash[:notice].should =~ /sign in/i
+        flash[:notice].should =~ /sign in/i
       end
     end
 
@@ -241,10 +241,10 @@ describe UsersController do
         response.should redirect_to(user_path(@user))
       end
 
-#      it "should have a flash message" do
-#        put :update, :id => @user, :user => @attr
-#        flash[:success].should =~ /updated/
-#      end
+      it "should have a flash message" do
+        put :update, :id => @user, :user => @attr
+        flash[:success].should =~ /updated/
+      end
     end
   end
 
